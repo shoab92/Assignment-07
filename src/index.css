@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add your custom styles below */
+
+body {
+    @apply bg-[#f5f5f5];
+}
