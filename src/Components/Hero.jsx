@@ -11,43 +11,34 @@ const Hero = () => {
     const [taskStatusTickets, setTaskStatusTickets] = useState([]);
     const [resolvedTickets, setResolvedTickets] = useState([]);
 
-  // Click on ticket to move it to Task Status
-  const handleAddToTaskStatus = (ticketId) => {
-    const ticketToAdd = tickets.find(t => t.id === ticketId);
-    if (ticketToAdd) {
-      setTaskStatusTickets(prev => [...prev, ticketToAdd]);
-      setTickets(prev => prev.filter(t => t.id !== ticketId));
+  const handleAddToTaskStatus=(ticketId) => {
+    const ticketToAdd=tickets.find(t=>t.id===ticketId);
+    if(ticketToAdd){
+      setTaskStatusTickets(prev=>[...prev,ticketToAdd]);
+      setTickets(prev => prev.filter(t=>t.id!==ticketId));
       alert(`Ticket "${ticketToAdd.title}" added to Task Status!`);
     }
   };
-
-  // Click Complete button in Task Status
-const handleComplete = (ticketId) => {
-  const completedTicket = taskStatusTickets.find(t => t.id === ticketId);
-  if (completedTicket) {
+const handleComplete=(ticketId)=>{
+  const completedTicket=taskStatusTickets.find(t=>t.id===ticketId);
+  if(completedTicket){
     alert(`Ticket "${completedTicket.title}" completed!`);
-    // remove from Task Status
     setTaskStatusTickets(prev => prev.filter(t => t.id !== ticketId));
-    // ⬇️ ADD THIS LINE to push into resolvedTickets
     setResolvedTickets(prev => [...prev, completedTicket]);
   }
 };
 
 
   return (
-    <div className="min-h-screen max-h-full mx-auto max-w-[1440px] border-2 border-red-400 mt-10 p-4">
+    <div className=" mx-auto max-w-[1440px] mt-10 p-4">
       
-      {/* Top Cards */}
+      {/* uporer Cards */}
 <div className="flex justify-center gap-8 mb-10">
   <InProgressCard1 count={taskStatusTickets.length} />
-  <InProgressCard2 count={resolvedTickets.length} /> {/* ⬅️ changed from 0 */}
+  <InProgressCard2 count={resolvedTickets.length} /> 
 </div>
 
-
-      {/* Three-column layout */}
-      <div className="border-2 border-blue-400 p-4 max-h-full grid grid-cols-3 gap-4">
-
-        {/* Left Column: Tickets */}
+<div className="p-4 max-h-full grid grid-cols-3 gap-4">
 <div>
   <h5 className="text-xl mb-2">Customer Tickets</h5>
   {tickets.slice(0, Math.ceil(tickets.length / 2)).map(ticket => (
@@ -61,7 +52,6 @@ const handleComplete = (ticketId) => {
   ))}
 </div>
 
-{/* Middle Column: Tickets */}
 <div>
   {tickets.slice(Math.ceil(tickets.length / 2)).map(ticket => (
     <div
@@ -75,7 +65,8 @@ const handleComplete = (ticketId) => {
 </div>
 
 
-        {/* Right Column: Task Status */}
+
+
         <div>
           <h5 className="text-xl mb-2">Task Status</h5>
           {taskStatusTickets.length === 0 ? (

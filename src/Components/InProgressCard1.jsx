@@ -3,7 +3,6 @@ import React from 'react';
 const InProgressCard1 = ({count}) => {
     return (
         <div className="relative w-[700px] h-[220px]  bg-gradient-to-r from-[#6b56e3] to-[#9f62f2] rounded-xl  text-white shadow-md flex flex-col items-center justify-center">
-      {/* Background image */}
         <img
         src="/vector1.png"
         alt="bgx"

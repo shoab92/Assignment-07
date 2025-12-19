@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 const getStatusMap={
     "In-Progress":"bg-yellow-100 text-yellow-700",
     "Resolved":"bg-green-100 text-green-700",
@@ -12,26 +11,18 @@ const getStatusMap={
 
 const CustomerTickets = ({ticket}) => {
     return (
-    <div className="w-full bg-white p-4 shadow-md border border-gray-200 rounded-lg">
-
-
-      {/* Title + Status */}
+    <div className="w-full bg-white p-4 shadow-md border-2 border-gray-200 rounded-lg">
         <div className="flex justify-between items-center mb-2">
         <h2 className="text-SM font-semibold text-gray-800">
 {ticket.title}
         </h2>
-
         <span className={`px-2 py-1 text-xs ${getStatusMap[ticket.status] || " font-medium bg-yellow-100 text-yellow-700 rounded-full"}`}>
 {ticket.status}     
         </span>
         </div>
-
-      {/* Description */}
         <p className="text-sm text-gray-600 mb-4">
 {ticket.description}
         </p>
-
-      {/* Metadata */}
         <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
         <div>
             <span className="font-medium">Ticket #:</span>
@@ -50,7 +41,7 @@ const CustomerTickets = ({ticket}) => {
 {ticket.customer}
         </div>
 
-        <div>
+      <div>
             <span className="font-medium">Date:</span>
 {ticket.createdAt}
         </div>
