@@ -1,46 +1,58 @@
 import React from 'react';
 
-const CustomerTickets = () => {
+
+
+const getStatusMap={
+    "In-Progress":"bg-yellow-100 text-yellow-700",
+    "Resolved":"bg-green-100 text-green-700",
+    "Open":"bg-red-100 text-red-700"
+};
+
+
+
+const CustomerTickets = ({ticket}) => {
     return (
-    <div className="w-full rounded-xl bg-white shadow-md p-6 border border-gray-200">
+    <div className="w-full bg-white p-4 shadow-md border border-gray-200 rounded-lg">
+
+
       {/* Title + Status */}
-
-
         <div className="flex justify-between items-center mb-2">
         <h2 className="text-SM font-semibold text-gray-800">
-        Login Issues - Can't Access Account
+{ticket.title}
         </h2>
-        <span className="px-3 py-1 text-sm font-medium bg-yellow-100 text-yellow-700 rounded-full">
-            In-Progress
+
+        <span className={`px-2 py-1 text-xs ${getStatusMap[ticket.status] || " font-medium bg-yellow-100 text-yellow-700 rounded-full"}`}>
+{ticket.status}     
         </span>
         </div>
 
       {/* Description */}
         <p className="text-sm text-gray-600 mb-4">
-        Customer cannot download their January invoice from the billing section. The download button is...
+{ticket.description}
         </p>
 
       {/* Metadata */}
         <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
         <div>
-            <span className="font-medium">Ticket #:</span> #1003
+            <span className="font-medium">Ticket #:</span>
+{ticket.id}
         </div>
 
 
         <div>
             <span className="font-medium">Priority:</span>
             <span className="ml-2 px-2 py-1 bg-orange-100 text-orange-700 rounded">
-            Medium
+{ticket.priority}
             </span>
         </div>
-
-
         <div>
-            <span className="font-medium">Agent:</span> Michael Brown
+            <span className="font-medium">Customer:</span> 
+{ticket.customer}
         </div>
 
         <div>
-            <span className="font-medium">Date:</span> 1/17/2024
+            <span className="font-medium">Date:</span>
+{ticket.createdAt}
         </div>
 
         </div>

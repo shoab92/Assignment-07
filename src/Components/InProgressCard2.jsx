@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InProgressCard2 = () => {
+const InProgressCard2 = ({count}) => {
     return (
         <div className="relative w-[700px] h-[220px]  bg-gradient-to-r from-[#77d069] to-[#44837a] rounded-xl text-white shadow-md flex flex-col items-center justify-center ">
       {/* Background image */}
@@ -20,7 +20,7 @@ const InProgressCard2 = () => {
             </h1>
 
             <h5 className="text-7xl pb-[4rem] text-center font-bold leading-tight">
-                0
+                {count}
             </h5>
     </div>
 );
