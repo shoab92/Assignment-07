@@ -8,10 +8,9 @@ const getStatusMap={
 };
 
 
-
 const CustomerTickets = ({ticket}) => {
     return (
-    <div className="w-full bg-white p-4 shadow-md border-2 border-gray-200 rounded-lg">
+    <div className="w-full  bg-white p-4 shadow-md border-2 border-gray-200 rounded-lg">
         <div className="flex justify-between items-center mb-2">
         <h2 className="text-SM font-semibold text-gray-800">
 {ticket.title}
@@ -41,7 +40,7 @@ const CustomerTickets = ({ticket}) => {
 {ticket.customer}
         </div>
 
-      <div>
+    <div>
             <span className="font-medium">Date:</span>
 {ticket.createdAt}
         </div>
